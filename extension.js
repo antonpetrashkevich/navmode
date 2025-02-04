@@ -1,35 +1,44 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
-
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
 	let navmodeEnabled = false;
+	let commodeEnabled = false;
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
 	console.log('Extension "navmode" is now active!');
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with  registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('navmode.toggle', function () {
-		// The code you place here will be executed every time your command is executed
-		navmodeEnabled = !navmodeEnabled;
+	const navmodeOn = vscode.commands.registerCommand('navmode.on', function () {
+		navmodeEnabled = true;
+		commodeEnabled = false;
 		vscode.commands.executeCommand('setContext', 'navmode', navmodeEnabled);
-		// Display a message box to the user
-		vscode.window.showInformationMessage(`Navmode ${navmodeEnabled ? "enabled" : "disabled"}`);
+		vscode.commands.executeCommand('setContext', 'commode', navmodeEnabled);
+		// vscode.window.showInformationMessage('Navmode enabled');
+		console.log('Navmode enabled');
+	});
+	const commodeOn = vscode.commands.registerCommand('commode.on', function () {
+		navmodeEnabled = false;
+		commodeEnabled = true;
+		vscode.commands.executeCommand('setContext', 'navmode', navmodeEnabled);
+		vscode.commkands.executeCommand('setContext', 'commode', navmodeEnabled);
+		// vscode.window.showInformationMessage('Commode enabled');
+		console.log('Commode enabled');
+	});
+	const modeOff = vscode.commands.registerCommand('modes.off', function () {
+		navmodeEnabled = false;
+		commodeEnabled = false;
+		vscode.commands.executeCommand('setContext', 'navmode', navmodeEnabled);
+		vscode.commands.executeCommand('setContext', 'commode', navmodeEnabled);
+		// vscode.window.showInformationMessage('Navmode and commode disabled');
+		console.log('Navmode and commode disabled');
 	});
 
-	context.subscriptions.push(disposable);
+	context.subscriptions.push(navmodeOn);
+	context.subscriptions.push(commodeOn);
+	context.subscriptions.push(modeOff);
 }
 
-// This method is called when your extension is deactivated
 function deactivate() { }
 
 module.exports = {

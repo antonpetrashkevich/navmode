@@ -18,8 +18,16 @@
   "contributes": {
     "commands": [
       {
-        "command": "navmode.toggle",
-        "title": "Toggle navmode"
+        "command": "navmode.on",
+        "title": "Turn on navmode"
+      },
+      {
+        "command": "commode.on",
+        "title": "Turn on commode"
+      },
+      {
+        "command": "modes.off",
+        "title": "Turn off navmode and commode"
       }
     ]
   },
