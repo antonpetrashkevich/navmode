@@ -13,7 +13,7 @@ function activate(context) {
 		navmodeEnabled = true;
 		commodeEnabled = false;
 		vscode.commands.executeCommand('setContext', 'navmode', navmodeEnabled);
-		vscode.commands.executeCommand('setContext', 'commode', navmodeEnabled);
+		vscode.commands.executeCommand('setContext', 'commode', commodeEnabled);
 		// vscode.window.showInformationMessage('Navmode enabled');
 		console.log('Navmode enabled');
 	});
@@ -21,7 +21,7 @@ function activate(context) {
 		navmodeEnabled = false;
 		commodeEnabled = true;
 		vscode.commands.executeCommand('setContext', 'navmode', navmodeEnabled);
-		vscode.commkands.executeCommand('setContext', 'commode', navmodeEnabled);
+		vscode.commands.executeCommand('setContext', 'commode', commodeEnabled);
 		// vscode.window.showInformationMessage('Commode enabled');
 		console.log('Commode enabled');
 	});
@@ -29,7 +29,7 @@ function activate(context) {
 		navmodeEnabled = false;
 		commodeEnabled = false;
 		vscode.commands.executeCommand('setContext', 'navmode', navmodeEnabled);
-		vscode.commands.executeCommand('setContext', 'commode', navmodeEnabled);
+		vscode.commands.executeCommand('setContext', 'commode', commodeEnabled);
 		// vscode.window.showInformationMessage('Navmode and commode disabled');
 		console.log('Navmode and commode disabled');
 	});

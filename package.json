@@ -1,7 +1,7 @@
 {
   "name": "navmode",
   "displayName": "navmode",
-  "description": "Alt+x toggles navmode on and off. So you can use it in your keybindings.",
+  "description": "Turn navmode and commode on/off. So you can use it in your keybindings.",
   "version": "1.0.0",
   "repository": {
     "type": "git",
